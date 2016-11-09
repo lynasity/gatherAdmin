@@ -1,7 +1,7 @@
 window.onload = function(){
     var view = document.getElementById('view');
     // var baseURL = 'http://www.test.manyhong.cn/';
-    var baseURL = 'http://www.test.manyhong.cn/';
+    var baseURL = 'http://www.gatherAdmin.com/';
     var admin = "admin"
 
     var themes = function(){
@@ -19,12 +19,12 @@ window.onload = function(){
     }
 
     var users = function(){
-         getView(baseURL + 'admin/cateManagerCenter')
+         getView(baseURL + 'gatherUser/showAll')
         showName('用户管理')
     }
 
     var articles = function(){
-        getView(baseURL + 'admin/cateManagerCenter')
+        getView(baseURL + 'articles/showAll')
         showName('文章管理')
     }
 
