@@ -77,7 +77,7 @@
                         <li>
                             <a href="#/messages">
                                 <i class="fa fa-bell"></i>
-                                推送消息
+                                消息中心
                             </a>
                         </li>
                         

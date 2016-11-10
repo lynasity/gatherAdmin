@@ -34,7 +34,7 @@ window.onload = function(){
     // }
     var messages = function(){
         getView(baseURL + 'admin/messageManagerCenter');
-        showName('推送消息');
+        showName('消息中心');
     }
 
     function getView(url){
