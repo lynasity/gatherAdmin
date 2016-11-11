@@ -91,7 +91,7 @@ function getArticleUrl(){
                 console.log('===== 取到' + self.Gzh.name + '的最近历史链接=====');
                 var gzhJson = JSON.stringify(self.Gzh);
                 console.log(typeof gzhJson);
-                request.post('http://www.gatherAdmin.com/gzh/add')
+                request.post('http://www.gatherAdmin.com/spider/article/store')
                 .set('Content-Type','application/json')
                 .send(gzhJson)
                 .end(function (err,res) {

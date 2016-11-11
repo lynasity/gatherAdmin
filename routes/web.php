@@ -112,3 +112,9 @@ Route::get('gatherUser/showAll','UserController@showAll');
 Route::post('spider/article/store','SpiderController@storeArticle');
 
 
+
+////////////////////////////////////////////////////////////////////
+//  message
+////////////////////////////////////////////////////////////////////
+
+Route::get('message/index','MessageController@index');

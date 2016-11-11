@@ -33,7 +33,7 @@ window.onload = function(){
     //     showName('产品更新');
     // }
     var messages = function(){
-        getView(baseURL + 'admin/messageManagerCenter');
+        getView(baseURL + 'message/index');
         showName('消息中心');
     }
 
