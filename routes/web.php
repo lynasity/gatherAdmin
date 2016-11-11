@@ -88,3 +88,25 @@ Route::get('gzh/delete/id/{id}','GzhController@delete');
 
 // show all
 Route::get('gatherUser/showAll','UserController@showAll');
+
+
+///////////////////////////////////////////////////////////////////////
+//  spider
+//////////////////////////////////////////////////////////////////////
+
+// store gzh infomation
+// method:post
+// arg1: gzh's name
+// arg2: gzh's historyUrl
+// return json include the id of the gzh besides status code,it will be used when you want to store the articles of a specific gzh
+// Route::post('spider/gzh/store','SpiderController@storeGzhInfo');
+
+// Get url by gzh's id
+// method:get
+// arg1:gzh_id
+// Route::get('spider/gzh/getUrl','SpiderController@getGzhUrlById');
+
+// storge article infomation
+// method : post
+// 5 args:  gzh_id,contentUrl,title,time,gzh_name
+Route::post('spider/article/store','SpiderController@storeArticle');

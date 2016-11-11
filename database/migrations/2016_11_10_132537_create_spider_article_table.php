@@ -17,6 +17,7 @@ class CreateSpiderArticleTable extends Migration
             $table->increments('id');
             $table->integer('gzh_id')->unsigned();
             $table->string('title')->unique();
+            $table->string('gzh_name');
              $table->unsignedTinyInteger('has_done')->default(0);
             $table->string('time');
             $table->text('contentUrl');
