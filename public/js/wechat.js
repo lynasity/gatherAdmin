@@ -6,7 +6,7 @@ const he = require('he');
 // const Gzh = require('./orm/gzj.js');
 
 var spider = {
-    name : ['广东工业大学','广东工业大学学生会','广工大视界','广工讲座活动'],
+    name : ['广工讲座活动','广东工业大学','广东工业大学学生会','广工大视界'],
     index: 0,
     entryUrl: null,
     Gzh: {},
@@ -68,7 +68,7 @@ function getArticleUrl(){
             }else {
 
                 var articleArr = getArticleArr();
-
+                // console.log(articleArr);
                 // handle string to object
                 articleArr.forEach(function (item) {
                     var article = clean(item)
@@ -83,21 +83,27 @@ function getArticleUrl(){
                         })
                     }
                 });
+
+                var storeUrl = "http://www.gatherAdmin.com/";
+
                 self.Gzh.name = self.currentGzh;
-                self.Gzh.historyUrl = self.historyUrl;
+                // self.Gzh.historyUrl = self.historyUrl;
                 self.Gzh.articles = self.articles;
 
 
-                console.log('===== 取到' + self.Gzh.name + '的最近历史链接=====');
-                var gzhJson = JSON.stringify(self.Gzh);
-                console.log(typeof gzhJson);
-                request.post('http://www.gatherAdmin.com/gzh/add')
+                var gzh = {
+                    gzh: self.Gzh
+                }
+
+                // console.log('===== 取到' + self.Gzh.name + '的最近历史链接=====');
+                var gzhJson = JSON.stringify(gzh);
+
+                request.post(storeUrl + 'spider/gzh/add')
                 .set('Content-Type','application/json')
                 .send(gzhJson)
                 .end(function (err,res) {
                      if(err) return console.log(err);
                 })
-                console.log(self.Gzh);
                 return self.init();
             }
 
@@ -126,6 +132,7 @@ function getHistoryUrl(){
                 // 成功,拿到历史消息url
                 // 异步进行下一步，去拿历史消息
                 self.historyUrl = result;
+                // console.log(result);
                 self.getArticleUrl();
             }else {
                 // 失败，跳过，下一条???
