@@ -32,7 +32,7 @@ class SpiderController extends Controller
     // }
       
      public function storeArticle(request $request){
-        
+        $request->input
         $article=new Spider_article::create(['gzh_id'=>$request->input('gzh_id'),'title'=>$request->input('title'),'contentUrl'=>$request->input('contentUrl'),'time'=>$request->input('time'),'gzh_name'=>$request->input('gzh_name')]);
         	if($OriginArticle){
                   return response()->json(['code'=>200,'status'=>'ok']);

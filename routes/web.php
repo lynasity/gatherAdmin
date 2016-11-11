@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// show home page 
+// show home page
 Route::get('home','HomeController@index');
 
 ///////////////////////////////////////////////////////////////////////
@@ -23,7 +23,7 @@ Route::get('home','HomeController@index');
 //////////////////////////////////////////////////////////////////////
 
   Route::group(['namespace'=>'Auth'],function (){
-// login 
+// login
 	Route::get('login','LoginController@showLoginForm')->name('adminLoginForm');
 	Route::post('login','LoginController@login');
 // logout
@@ -83,7 +83,7 @@ Route::post('gzh/update','GzhController@update');
 Route::get('gzh/delete/id/{id}','GzhController@delete');
 
 ///////////////////////////////////////////////////////////////////////
-//  user 
+//  user
 //////////////////////////////////////////////////////////////////////
 
 // show all
@@ -101,7 +101,7 @@ Route::get('gatherUser/showAll','UserController@showAll');
 // return json include the id of the gzh besides status code,it will be used when you want to store the articles of a specific gzh
 // Route::post('spider/gzh/store','SpiderController@storeGzhInfo');
 
-// Get url by gzh's id 
+// Get url by gzh's id
 // method:get
 // arg1:gzh_id
 // Route::get('spider/gzh/getUrl','SpiderController@getGzhUrlById');
@@ -110,6 +110,7 @@ Route::get('gatherUser/showAll','UserController@showAll');
 // method : post
 // 5 args:  gzh_id,contentUrl,title,time,gzh_name
 Route::post('spider/article/store','SpiderController@storeArticle');
+
 
 
 
