@@ -6,19 +6,20 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
-
-class newMessages extends Notification
+class newArticle extends Notification implements ShouldQueue
 {
     use Queueable;
-
+    private $gzh_name;
+    private $title;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($gzh_name,$title)
     {
-        //
+        $this->gzh_name=$gzh_name;
+        $this->title=$title;
     }
 
     /**
@@ -41,21 +42,8 @@ class newMessages extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', 'https://laravel.com')
-                    ->line('Thank you for using our application!');
-    }
-
-    /**
-     * Get the array representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
-    public function toArray($notifiable)
-    {
-        return [
-            //
-        ];
+                    ->line('神一样的小编，有未处理的新文章哦～')
+                    ->line('内容：'.$this->title.'--'.$this->gzh_name)
+                    ->action('快去处理吧～', 'http://www.gatheradmin.com/articles/showAll');
     }
 }

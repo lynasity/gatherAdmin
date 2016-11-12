@@ -15,13 +15,13 @@ class CreateSpiderArticleTable extends Migration
     {
         Schema::create('spider_article', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('gzh_id')->unsigned();
-            $table->string('title')->unique();
+            // $table->integer('gzh_id')->unsigned();
+            $table->string('title');
             $table->string('gzh_name');
              $table->unsignedTinyInteger('has_done')->default(0);
             $table->string('time');
             $table->text('contentUrl');
-            $table->index('gzh_id');
+            // $table->index('gzh_id');
             $table->timestamps();
         });
     }

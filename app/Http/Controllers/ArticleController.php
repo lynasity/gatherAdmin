@@ -3,42 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\OriginArticle;
 use App\ThemeFeeds;
+use App\Spider_article;
 class ArticleController extends Controller
 {
 	// show all original articles
     public function showAll(){
 
-         $articles=OriginArticle::paginate(5);
+         $articles=Spider_article::paginate(10);
          return view('articles/all',['articles'=>$articles]);    
     }
     // show all articles haven't be done 
     public  function showAllUndone(){
-    	$articles=OriginArticle::where('has_done',0)->paginate(5);
+    	$articles=Spider_article::where('has_done',0)->paginate(5);
     	return view('articles/all',['articles'=>$articles]);   
     }
-    // put original articles into db
-     public function add(Request $request){
-        $gzh_id=$request->input('gzh_id');
-        $title=$request->input('title');
-        $digest=$request->input('digest');
-        $content=$request->input('content');
-        $url=$request->input('url');
-        $date=$request->input('date');
-  
-        $OriginArticle=new OriginArticle();
-        $OriginArticle->name=$name;
-        $OriginArticle->historyUrl=$historyUrl;
-        	if($OriginArticle->save()){
-                 return 'ok';
-        	}else{
-                 return 'error';
-        	}
-    }
+
     // when you click the item in the list, you will see their detail
     public function showDetail($id){
-        $originArticle=OriginArticle::find($id);
+        $originArticle=Spider_article::find($id);
         return view('articles.detail',['originArticle'=>$originArticle]);
     }
      // classify the original message and push into feeds

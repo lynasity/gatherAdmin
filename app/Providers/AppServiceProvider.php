@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Providers;
-
+use App\Spider_article;
+use App\Observers\SpiderArticleObserver;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\DB;
 class AppServiceProvider extends ServiceProvider
@@ -18,6 +19,8 @@ class AppServiceProvider extends ServiceProvider
             // $query->bindings
             // $query->time
         });
+        // register observers of Spider_article
+        Spider_article::observe(SpiderArticleObserver::class);
     }
 
     /**

@@ -1,5 +1,4 @@
 @inject('Themes','App\Themes')
-@inject('Gzh','App\Gzh')
 
 detail:
 <form method="post" action="{{route('articles.classify')}}">
@@ -7,21 +6,19 @@ detail:
 <input type="hidden" name="articleId" value="{{$originArticle->id}}">
 
 organization:
-<input type="text" readonly="readonly" name="organization" value="{{$Gzh::find($originArticle->gzh_id)->name}}">
+<input type="text"  name="organization" value="{{$originArticle->gzh_name}}">
 <br>
 title:
-<input type="text" readonly="readonly" name="title" value="{{$originArticle->title}}">
-<br>
-url:
-<input type="text" readonly="readonly" name="url" value="{{$originArticle->url}}">
-<br>
-date:
-<input type="text" readonly="readonly" name="date" value="{{$originArticle->date}}">
+<input type="text"  name="title" value="{{$originArticle->title}}">
 <br>
 content:
-<textarea name='content' >
-	{{$originArticle->content}}
-</textarea>
+<iframe src="{{$originArticle->contentUrl}}">
+	
+</iframe>
+<br>
+date:
+<input type="text"  name="date" value="{{$originArticle->time}}">
+<br>
 <br>
 choose theme for this aricle:
 <select name="theme_id">
