@@ -98,7 +98,7 @@ function getArticleUrl(){
                 // console.log('===== 取到' + self.Gzh.name + '的最近历史链接=====');
                 var gzhJson = JSON.stringify(gzh);
 
-                request.post(storeUrl + 'spider/gzh/add')
+                request.post(storeUrl + 'spider/article/store')
                 .set('Content-Type','application/json')
                 .send(gzhJson)
                 .end(function (err,res) {
