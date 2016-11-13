@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "view.css",
+	"sources": [
+		"../src/sass/view.sass"
+	],
+	"mappings": "AAEA,AACI,KADC,CACD,EAAE,CADN,AACO,KADF,CACE,EAAE,AAAC,CACF,UAAU,CAAE,MAAO,CAAG,AAC9B,AAAA,eAAe,AAAC,CACZ,MAAM,CAAE,IAAK,CAAG,AAGpB,AAAA,YAAY,AAAC,CACT,MAAM,CAAE,IAAK,CAAG",
+	"names": []
+}

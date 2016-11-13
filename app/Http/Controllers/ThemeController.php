@@ -54,7 +54,8 @@ class ThemeController extends Controller
     }
 
     public function showAll(){
-        $themes=Themes::all();
+        // $themes=Themes::all();
+         $themes=[];
         return view('theme.index',['themes'=>$themes]);
     }
 

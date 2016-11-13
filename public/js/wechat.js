@@ -94,17 +94,18 @@ function getArticleUrl(){
                 var gzh = {
                     gzh: self.Gzh
                 }
+                console.log(gzh);
 
                 // console.log('===== 取到' + self.Gzh.name + '的最近历史链接=====');
-                var gzhJson = JSON.stringify(gzh);
-
-                request.post(storeUrl + 'spider/article/store')
-                .set('Content-Type','application/json')
-                .send(gzhJson)
-                .end(function (err,res) {
-                     if(err) return console.log(err);
-                })
-                return self.init();
+                // var gzhJson = JSON.stringify(gzh);
+                //
+                // request.post(storeUrl + 'spider/article/store')
+                // .set('Content-Type','application/json')
+                // .send(gzhJson)
+                // .end(function (err,res) {
+                //      if(err) return console.log(err);
+                // })
+                // return self.init();
             }
 
         })

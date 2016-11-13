@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{asset('./css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('./css/bootstrap.min.css')}}" media="screen" title="no title">
+    <link rel="stylesheet" href="{{asset('./css/view.css')}}"/>
     <link rel="stylesheet" href="{{asset('./css/admin.css')}}">
     <title>Admin</title>
 </head>
@@ -80,7 +81,7 @@
                                 消息中心
                             </a>
                         </li>
-                        
+
                     </ul>
             </div>
             <div class="col-right full-height">
