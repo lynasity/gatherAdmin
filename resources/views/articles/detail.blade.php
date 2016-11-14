@@ -16,6 +16,11 @@ content:
 	
 </iframe>
 <br>
+digest:
+<textarea name='content' rows="20" cols="30">
+	
+</textarea>
+<br>
 date:
 <input type="text"  name="date" value="{{$originArticle->time}}">
 <br>

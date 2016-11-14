@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Gzh extends Model
 {
     protected $table='gzh';
-    protected $fillable=['name','historyUrl'];
+    protected $fillable=['name'];
 }

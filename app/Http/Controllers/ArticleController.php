@@ -32,12 +32,13 @@ class ArticleController extends Controller
           $newFeed->organization=$request->input('organization');
           $newFeed->title=$request->input('title');
           $newFeed->url=$request->input('url');
+
           $newFeed->description=$request->input('content');
           $newFeed->date=$request->input('date');
           $newFeed->theme_id=$request->input('theme_id');
           if($newFeed->save()){
           	// mark as done
-          	 $originArticle=OriginArticle::find($articleId)->update(['has_done'=>1]);
+          	 $originArticle=Spider_article::find($articleId)->update(['has_done'=>1]);
           	 return 'ok';
           }else{
           	return 'fail';

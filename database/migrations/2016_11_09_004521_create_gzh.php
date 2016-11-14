@@ -13,12 +13,14 @@ class CreateGzh extends Migration
      */
     public function up()
     {
+        if(!Schema::hasTable('gzh')){
         Schema::create('gzh', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('historyUrl');
             $table->timestamps();
         });
+        }
     }
 
     /**
@@ -28,6 +30,6 @@ class CreateGzh extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gzh');
+        // Schema::dropIfExists('gzh');
     }
 }

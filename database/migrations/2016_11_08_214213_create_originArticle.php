@@ -13,18 +13,18 @@ class CreateOriginArticle extends Migration
      */
     public function up()
     {
-        Schema::create('originArticle', function (Blueprint $table) {
-             $table->increments('id');
-             $table->integer('gzh_id')->unsigned();
-             $table->unsignedTinyInteger('has_done');
-             $table->text('title');
-             $table->text('digest');
-             $table->longText('content');
-             $table->string('url');
-             $table->string('date');
-             $table->index('gzh_id');
-             $table->timestamps();
-        });
+        // Schema::create('originArticle', function (Blueprint $table) {
+        //      $table->increments('id');
+        //      $table->integer('gzh_id')->unsigned();
+        //      $table->unsignedTinyInteger('has_done');
+        //      $table->text('title');
+        //      $table->text('digest');
+        //      $table->longText('content');
+        //      $table->string('url');
+        //      $table->string('date');
+        //      $table->index('gzh_id');
+        //      $table->timestamps();
+        // });
     }
 
     /**

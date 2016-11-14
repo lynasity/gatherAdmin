@@ -79,8 +79,9 @@ Route::get('gzh/showAll','GzhController@showAll');
 Route::get('gzh/update/id/{id}','GzhController@updateGzh');
 Route::post('gzh/update','GzhController@update');
 
-// delete a theme
+// delete a gzh
 Route::get('gzh/delete/id/{id}','GzhController@delete');
+
 
 ///////////////////////////////////////////////////////////////////////
 //  user
