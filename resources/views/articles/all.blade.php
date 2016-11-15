@@ -1,16 +1,3 @@
-<!-- @foreach($articles as $article)
-   title<li><a href="{{url('articles/showDetail',['id'=>$article->id])}}">{{$article->title}}</a></li>
-
-   {{--organization<li>{{$Gzh::find($article->gzh_id)->name}}</li>
-   digest<li>{{$article->digest}}</li>
-   content<li>{{$article->content}}</li>
-   url<li>{{$article->url}}</li>
-   date<li>{{$article->date}}</li>
-   <hr>--}}
-@endforeach
-{{$articles->links()}}
- -->
-
 <div class="row">
   	<div class="col-md-10 col-md-offset-1">
 		<div class="col-md-5">
@@ -23,16 +10,13 @@
 	  		  </div>
 	  		  <div class="panel-body">
 	  		    <div class="list-group" id="toHandleList">
-	  		    		<a class="list-group-item-warning list-group-item" href="{{url('articles/showDetail')}}">
-							Lorem ipsum dolor sit amet.
+	  		    @foreach($undoneArticles as $undoneArticle)
+	  		    		<a class="list-group-item-warning list-group-item" href="{{url('articles/showDetail',['id',$undoneArticle->id])}}">
+							{{$undoneArticle->title}}
 	  		    		</a>
-	  		    		<a class="list-group-item-warning list-group-item" href="#">
-	  		    			Lorem ipsum dolor sit amet.
-	  		    		</a>
-	  		    		<a class="list-group-item-warning list-group-item" href="#">
-	  		    			Lorem ipsum dolor sit amet.
-	  		    		</a>
+	  		    @endforeach()
 	  		    </div>
+	  		    {{$undoneArticles->links()}}
 	  		  </div>
 	  		</div>
 		</div>
@@ -46,16 +30,13 @@
 	  		  </div>
 	  		  <div class="panel-body">
 				  <div class="list-group">
+				  @foreach($articles as $article)
 				  		<a class="list-group-item list-group-item-success" href="#">
-				  			Lorem ipsum dolor sit amet.
+				  			{{$article->title}}
 				  		</a>
-				  		<a class="list-group-item list-group-item-success" href="#">
-				  			Lorem ipsum dolor sit amet.
-				  		</a>
-				  		<a class="list-group-item list-group-item-success" href="#">
-				  			Lorem ipsum dolor sit amet.
-				  		</a>
+				  @endforeach
 				  </div>
+				  {{$articles->links()}}
 	  		  </div>
 	  		</div>
 		</div>

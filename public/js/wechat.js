@@ -34,27 +34,29 @@ function start() {
 }
 
 function preFetch(){
-    var api = 'spider/gzh/all';
+    var api = 'http://www.gatherAdmin.com/spider/gzh/all';
     var self = this;
+
     request.get(api)
         .end(function (err,res) {
-            if(err) return console.log(res.text);
+            if(err) return console.log(err);
 
-            var data = res.json();
+            var data = res.body;
             var temp = [];
 
             for (var i = 0; i < data.data.length; i++) {
                 temp.push(data.data[i].name )
             }
-
-            self.name = data;
-            start();
+            
+            self.name = temp;
+            // console.log(self.name)
+            self.start();
         })
 }
 
 
 function init() {
-    sleep(1000 * 30)
+    sleep(1000 * 20)
     this.start();
 }
 
@@ -115,18 +117,18 @@ function getArticleUrl(){
                 var gzh = {
                     gzh: self.Gzh
                 }
-                console.log(gzh);
+                // console.log(gzh);
 
-                // console.log('===== 取到' + self.Gzh.name + '的最近历史链接=====');
-                // var gzhJson = JSON.stringify(gzh);
-                //
-                // request.post(storeUrl + 'spider/article/store')
-                // .set('Content-Type','application/json')
-                // .send(gzhJson)
-                // .end(function (err,res) {
-                //      if(err) return console.log(err);
-                // })
-                // return self.init();
+                console.log('===== 取到' + self.Gzh.name + '的最近历史链接=====');
+                var gzhJson = JSON.stringify(gzh);
+                
+                request.post(storeUrl + 'spider/article/store')
+                .set('Content-Type','application/json')
+                .send(gzhJson)
+                .end(function (err,res) {
+                     if(err) return console.log(err);
+                })
+                return self.init();
             }
 
         })

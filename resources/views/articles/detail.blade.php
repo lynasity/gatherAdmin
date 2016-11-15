@@ -10,7 +10,7 @@
                 发布单位:
             </label>
             <div class="col-md-8">
-                <input type="text" class="form-control" id="" placeholder="" name="organization">
+                <input type="text" class="form-control" id="" placeholder="" name="organization" value="{{$originArticle->gzh_name}}">
             </div>
           </div>
           <div class="form-group">
@@ -18,7 +18,7 @@
                 题目:
             </label>
             <div class="col-md-8">
-                <input type="text" name="title" class="form-control" id="" placeholder="">
+                <input type="text" name="title" class="form-control" id="" placeholder="" value="{{$originArticle->title}}">
             </div>
           </div>
 
@@ -27,7 +27,7 @@
                 发布日期:
             </label>
             <div class="col-md-8">
-                <input type="text" name="date" class="form-control" id="" placeholder="">
+                <input type="text" name="date" class="form-control" id="" placeholder="" value="{{$originArticle->time}}">
             </div>
           </div>
 
@@ -58,7 +58,7 @@
     </div>
 </div>
     <div class="col-md-6 full-height">
-        <iframe  src="http://www.baidu.com" width="100%" height="100%">
+        <iframe  src="{{$originArticle->contentUrl}}" width="100%" height="100%">
         </iframe>
     </div>
 </div>

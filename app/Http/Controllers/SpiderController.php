@@ -7,6 +7,7 @@ use App\Spider_gzh;
 use App\Spider_article;
 use  App\Notifications\newArticle;
 // use App\Gzh;
+use Illuminate\Support\Facades\DB;
 use App\User;
 
 class SpiderController extends Controller
@@ -26,7 +27,7 @@ class SpiderController extends Controller
      }      
 // return all gzh need to be scrapied by spider
     public function getAllGzh(){
-          $gzhsName=DB::table('gzh')->select('name')->get();    
-          return response()->json($gzhsName);
+          $gzhsName=DB::table('gzh')->select('name')->get(); 
+          return response()->json(['data'=>$gzhsName]);
     }
 }
