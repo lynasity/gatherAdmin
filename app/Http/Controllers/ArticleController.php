@@ -33,16 +33,16 @@ class ArticleController extends Controller
           $articleId=$request->input('articleId');
           $newFeed->organization=$request->input('organization');
           $newFeed->title=$request->input('title');
-          $newFeed->url=$request->input('url');
-          $newFeed->description=$request->input('content');
+        //   $newFeed->url=$request->input('url');
+          $newFeed->description=$request->input('description');
           $newFeed->date=$request->input('date');
           $newFeed->theme_id=$request->input('theme_id');
           if($newFeed->save()){
           	// mark as done
-          	 $originArticle=OriginArticle::find($articleId)->update(['has_done'=>1]);
-          	 return 'ok';
+          	 $originArticle=Spider_article::where('id',$articleId)->update(['has_done'=>1]);
+          	 return response()->json(['code'=>200,'status'=>'ok']);
           }else{
-          	return 'fail';
+          	return response()->json(['code'=>500,'status'=>"Internal Server Error"]);
           }
     }
 }

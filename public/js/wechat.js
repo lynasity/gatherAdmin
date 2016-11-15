@@ -6,7 +6,8 @@ const he = require('he');
 // const Gzh = require('./orm/gzj.js');
 
 var spider = {
-    name : ['广工讲座活动','广东工业大学','广东工业大学学生会','广工大视界'],
+    preFetch: preFetch,
+    name : null,
     index: 0,
     entryUrl: null,
     Gzh: {},
@@ -19,7 +20,7 @@ var spider = {
     start: start,
 }
 
-spider.start();
+spider.preFetch();
 
 function start() {
     var len = this.name.length;
@@ -31,6 +32,26 @@ function start() {
     this.entryUrl = getEntryUrl(this.currentGzh);
     this.getHistoryUrl();
 }
+
+function preFetch(){
+    var api = 'spider/gzh/all';
+    var self = this;
+    request.get(api)
+        .end(function (err,res) {
+            if(err) return console.log(res.text);
+
+            var data = res.json();
+            var temp = [];
+
+            for (var i = 0; i < data.data.length; i++) {
+                temp.push(data.data[i].name )
+            }
+
+            self.name = data;
+            start();
+        })
+}
+
 
 function init() {
     sleep(1000 * 30)

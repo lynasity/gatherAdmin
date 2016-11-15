@@ -1,87 +1,65 @@
+@inject('Themes','App\Themes')
 <div class="row full-height">
-    <div class="col-md-6">
-      <form class="form-horizontal" action="index.html" method="post">
+    <div class="col-md-6 margin-top">
+      <form class="form-horizontal" action="{{route('articles.classify')}}" method="post" id="articleForm">
           {{csrf_field()}}
           <input type="hidden" name="articleId" value="">
 
           <div class="form-group">
             <label for="" class="control-label col-md-4">
-                organization:
+                发布单位:
             </label>
             <div class="col-md-8">
                 <input type="text" class="form-control" id="" placeholder="" name="organization">
             </div>
           </div>
+
           <div class="form-group">
               <label for="" class="control-label col-md-4">
-                title:
+                题目:
             </label>
             <div class="col-md-8">
                 <input type="text" name="title" class="form-control" id="" placeholder="">
             </div>
           </div>
+
           <div class="form-group">
               <label for="" class="control-label col-md-4">
-                date:
+                发布日期:
             </label>
             <div class="col-md-8">
                 <input type="text" name="date" class="form-control" id="" placeholder="">
             </div>
           </div>
+
+          <div class="form-group">
+            <label for="" class="control-label col-md-4">摘要:</label>
+            <div class="col-md-8">
+                <textarea width="100%" name='description' class="digest">
+                </textarea>
+            </div>
+          </div>
+
           <div class="form-group">
               <label for="" class="control-label col-md-4">
-                choose theme for this aricle:
+                文章分类:
             </label>
             <div class="col-md-8">
                 <select name="theme_id" class="form-control">
-                    <option value="">option</option>
-                    <option value="">option</option>
-                </select>
+                    @foreach($Themes::all() as $theme)
+                    	<option value="{{$theme->id}}">{{$theme->theme_name}}</option>
+                    @endforeach
             </div>
           </div>
+
           <div class="form-group">
-              <div class="col-md-3 pull-right">
-                  <input type="submit" value="ok" class="btn btn-success">
-              </div>
+            <input type="submit" value="ok" class="btn btn-success">
           </div>
-
-
-
       </form>
     </div>
-
-    <div class="col-md-6 full-height">
-        <iframe  src="http://www.baidu.com" width="100%" height="100%"></iframe>
-    </div>
-
 </div>
-
-{{-- @inject('Themes','App\Themes')
-detail:
-<form method="post" action="{{route('articles.classify')}}">
-      {{csrf_field()}}
-<input type="hidden" name="articleId" value="{{$originArticle->id}}">
-
-organization:
-<input type="text"  name="organization" value="{{$originArticle->gzh_name}}">
-<br>
-title:
-<input type="text"  name="title" value="{{$originArticle->title}}">
-<br>
-content:
-<iframe src="{{$originArticle->contentUrl}}">
-
-</iframe>
-<br>
-date:
-<input type="text"  name="date" value="{{$originArticle->time}}">
-<br>
-<br>
-choose theme for this aricle:
-<select name="theme_id">
-@foreach($Themes::all() as $theme)
-	<option value="{{$theme->id}}">{{$theme->theme_name}}</option>
-@endforeach
-</select>
-	<input type="submit" value="ok">
-</form> --}}
+    <div class="col-md-6 full-height">
+        <iframe  src="http://www.baidu.com" width="100%" height="100%">
+        </iframe>
+    </div>
+</div>
