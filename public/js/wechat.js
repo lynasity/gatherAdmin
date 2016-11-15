@@ -192,7 +192,7 @@ function getToday(ms){
     var year = now.getFullYear();
     var month = now.getMonth();
     var day = now.getDate();
-    return year + '年' + (month + 1) + '月' + day+'日'
+    return year + '-' + (month + 1) + '-' + day
 }
 
 function clean(perArticle) {

@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Spider_gzh;
 use App\Spider_article;
+use  App\Notifications\newArticle;
 // use App\Gzh;
+use App\User;
+
 class SpiderController extends Controller
 {  
      public function storeArticle(request $request){
@@ -19,7 +22,7 @@ class SpiderController extends Controller
             }else{
                $newArticle=Spider_article::create(['gzh_name'=>$name,'title'=>$article['title'],'contentUrl'=>$article['contentUrl'],'time'=>$article['time']]);
             }
-         }
+         } 
      }      
 // return all gzh need to be scrapied by spider
     public function getAllGzh(){

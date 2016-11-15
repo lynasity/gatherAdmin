@@ -14,11 +14,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        DB::listen(function ($query) {
-            // echo $query->sql;
-            // $query->bindings
-            // $query->time
-        });
+        // DB::listen(function ($query) {
+        //     // echo $query->sql;
+        //     // $query->bindings
+        //     // $query->time
+        // });
         // register observers of Spider_article
         Spider_article::observe(SpiderArticleObserver::class);
     }

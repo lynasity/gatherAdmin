@@ -42,6 +42,7 @@ class newArticle extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
+                    ->subject('[知否]新文章来啦～')
                     ->line('神一样的小编，有未处理的新文章哦～')
                     ->line('内容：'.$this->title.'--'.$this->gzh_name)
                     ->action('快去处理吧～', 'http://www.gatheradmin.com/articles/showAll');
