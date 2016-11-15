@@ -8,15 +8,15 @@ use App\Spider_article;
 class ArticleController extends Controller
 {
 	// show all original articles
-    public function showAll(){
-         $undoneArticles=Spider_article::paginate(10);
-         $articles=Spider_article::where('has_done',1)->paginate(3);
-         return view('articles/all',['articles'=>$articles,'undoneArticles'=>$undoneArticles]);
+    public function showAllDone(){
+         // $undoneArticles=Spider_article::paginate(5);
+         $articles=Spider_article::where('has_done',1)->paginate(5);
+         return view('articles.allDone',['articles'=>$articles]);
     }
     // show all articles haven't be done
-    public  function showAllUndone(){
+    public  function showAllUnDone(){
     	$articles=Spider_article::where('has_done',0)->paginate(5);
-    	return view('articles/all',['articles'=>$articles]);
+    	return view('articles.allUnDone',['articles'=>$articles]);
     }
 
     // when you click the item in the list, you will see their detail

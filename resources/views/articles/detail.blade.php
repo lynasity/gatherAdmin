@@ -34,7 +34,7 @@
           <div class="form-group">
             <label for="" class="control-label col-md-4">摘要:</label>
             <div class="col-md-8">
-                <textarea width="100%" name='description' class="digest">
+                <textarea width="100%" name='description' class="digest" value="">
                 </textarea>
             </div>
           </div>

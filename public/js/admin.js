@@ -60,8 +60,9 @@
             }
         })
 
-        var pagiBtn = document.querySelectorAll('.pagination a');
+        var pagiBtn = document.querySelectorAll('.once a');
         var pagiBtnArr = toArray(pagiBtn);
+
         pagiBtnArr.forEach(function (item) {
             if(event.target === item) {
                 event.preventDefault();
@@ -148,7 +149,7 @@
 
     function paginate(item) {
         var url = item.getAttribute('href');
-
+        console.log(item)
         fetch(url).then(function(res){
             return res.text();
         }).then(function(body){

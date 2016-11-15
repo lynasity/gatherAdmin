@@ -39,7 +39,9 @@
 
 				</tbody>
 			</table>
-				{{$themes->links()}}
+				<div class="once">
+					{{$themes->links()}}
+				</div>
 		</div>
 	</div>
 	</div>

@@ -57,10 +57,11 @@ Route::post('themes/add','ThemeController@add');
 //  article operation
 //////////////////////////////////////////////////////////////////////
 
-//show all articles have gotton
-Route::get('articles/showAll','ArticleController@showAll');
+//show all articles have been done
+Route::get('articles/showAllDone','ArticleController@showAllDone');
 // show all articles havn't been done
-Route::get('articles/showAllUndone','ArticleController@showAllUndone');
+Route::get('articles/showAllUnDone','ArticleController@showAllUnDone');
+
 // show detail
 Route::get('articles/showDetail/id/{id}','ArticleController@showDetail');
 //classfiy

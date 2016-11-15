@@ -36,7 +36,9 @@
 						@endforeach
 					</tbody>
 				</table>
-				{{$gzhs->links()}}
+				<div class="once">
+					{{$gzhs->links()}}
+				</div>
 			</div>
 		</div>
 		</div>

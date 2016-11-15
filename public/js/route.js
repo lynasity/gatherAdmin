@@ -24,7 +24,7 @@ window.onload = function(){
     }
 
     var articles = function(){
-        getView(baseURL + 'articles/showAll')
+        getView(baseURL + 'articles/showAllUnDone')
         showName('文章管理')
     }
 
