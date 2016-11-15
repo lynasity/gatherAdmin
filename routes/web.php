@@ -62,7 +62,7 @@ Route::get('articles/showAll','ArticleController@showAll');
 // show all articles havn't been done
 Route::get('articles/showAllUndone','ArticleController@showAllUndone');
 // show detail
-Route::get('articles/showDetail/{id}','ArticleController@showDetail');
+Route::get('articles/showDetail','ArticleController@showDetail');
 //classfiy
 Route::post('articles/classify','ArticleController@classify')->name('articles.classify');
 

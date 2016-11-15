@@ -16,25 +16,33 @@ class ThemeController extends Controller
     }
 
     public function add(Request $request){
-
         $theme_name=$request->input('theme_name');
-        if(!Themes::where('theme_name',$theme_name)->first()){
+        $id=$request->input('id');
+        $type='update';
+        if(is_null($id)){
+          $theme=Themes::where('theme_name',$theme_name)->first();
+      }else{
+          $theme=Themes::where('id',$id)->first();
+      }
+        if(!$theme){
               $theme=new Themes();
-              $theme->theme_name=$theme_name;
-              $theme->save();
+              $type='create';
+        }
+        $theme->theme_name=$theme_name;
+        if($theme->save()){
+            return response()->json(['code'=>200,'status'=>"ok",'type'=>$type,'data'=>$theme]);
         }else{
-        	return 'this theme already exists';
+            return response()->json(['code'=>500,'status'=>'Internel Server Error']);
         }
     }
 
-    public function delete(request $request,$id){
-          var_dump($_GET['id']);
-          exit;
+
+    public function delete($id){
           $theme=Themes::find($id);
-          if($theme){
-          	$theme->delete();
+          if($theme->delete()){
+            return response()->json(['code'=>200,'status'=>"ok"]);
           }else{
-          	// return view('error');
+             return response()->json(['code'=>500,'status'=>'Internel Server Error']);
           }
     }
 
@@ -42,19 +50,20 @@ class ThemeController extends Controller
 
     	$theme=Themes::find($id);
           if($theme){
-          	return view('theme.update',$theme); 
+          	return view('theme.update',$theme);
           }else{
           	// return view('error');
           }
-         
+
     }
 
-    public function update(){
+    public function update(request $request,$id){
+
 
     }
 
     public function showAll(){
-        $themes=Themes::all();
+        $themes=Themes::paginate(5);
         return view('theme.index',['themes'=>$themes]);
     }
 

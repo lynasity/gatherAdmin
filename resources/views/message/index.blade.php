@@ -1,4 +1,4 @@
-  <table border="1">
+<table border="1">
   <tr>
   	<th>username</th>
   	<th>feedback</th>
@@ -9,4 +9,4 @@
      <td>{{$feedback->feedback}}</td>
     </tr>
   @endforeach
-  </table>
+ </table>

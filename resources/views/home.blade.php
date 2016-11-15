@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{asset('./css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('./css/bootstrap.min.css')}}" media="screen" title="no title">
+    <link rel="stylesheet" href="{{asset('./css/view.css')}}"/>
     <link rel="stylesheet" href="{{asset('./css/admin.css')}}">
     <title>Admin</title>
 </head>
@@ -35,6 +37,14 @@
                         <i class="fa fa-sign-out"></i>
                         登出
                     </a>
+                    <div class="alert alert-success msg">
+                        <i class="fa fa-check"></i>
+                        <span id="successMsg"></span>
+                    </div>
+                    <div class="alert alert-danger msg">
+                        <i class="fa fa-close"></i>
+                        <span id="failedMsg"></span>
+                    </div>
                 </div>
             </div>
 
@@ -80,7 +90,7 @@
                                 消息中心
                             </a>
                         </li>
-                        
+
                     </ul>
             </div>
             <div class="col-right full-height">

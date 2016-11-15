@@ -86,7 +86,7 @@
             </div>
             <div class="col-right full-height">
                 <div class="view" id="view">
-                    <form action=""></form>
+                    {{-- <form action=""></form> --}}
                 </div>
             </div>
 

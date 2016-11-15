@@ -65,7 +65,7 @@ return [
             'strict' => true,
             'engine' => null,
         ],
-        
+
          'feeds' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', '127.0.0.1'),
