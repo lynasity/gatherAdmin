@@ -8,6 +8,10 @@ use App\Spider_article;
 class ArticleController extends Controller
 {
 	// show all original articles
+    public function index(){
+        $articles=Spider_article::where('has_done',0)->paginate(5);
+        return view('articles.index',['articles'=>$articles]);
+    }
     public function showAllDone(){
          // $undoneArticles=Spider_article::paginate(5);
          $articles=Spider_article::where('has_done',1)->paginate(5);

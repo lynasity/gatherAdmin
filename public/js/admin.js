@@ -69,8 +69,12 @@
                 paginate(item);
             }
         })
-    }
+        // events can't bind to window
 
+        if(event.target.id === 'toDone' || event.target.id === 'toUnDone') {
+            switchView.call(event.target,event);
+        }
+    }
 
 
     window.onsubmit = function(event){
@@ -92,6 +96,16 @@
 
     // event handlers
     // updateForm(event.target,'themeForm','更新主题成功','更新主题失败')
+    function switchView(event) {
+        event.preventDefault();
+        var href = this.getAttribute('href')
+        fetch(href).then(function (res) {
+            return res.text();
+        }).then(function(body){
+            var articleView = document.getElementById('articleView');
+            articleView.innerHTML = body;
+        })
+    }
 
     function transformData(formId) {
         var tr = this.parentNode.parentNode;

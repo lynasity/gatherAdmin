@@ -61,7 +61,7 @@ Route::post('themes/add','ThemeController@add');
 Route::get('articles/showAllDone','ArticleController@showAllDone');
 // show all articles havn't been done
 Route::get('articles/showAllUnDone','ArticleController@showAllUnDone');
-
+Route::get('articles/index','ArticleController@index');
 // show detail
 Route::get('articles/showDetail/id/{id}','ArticleController@showDetail');
 //classfiy
